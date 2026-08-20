@@ -3,206 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOGE Network | Official Ecosystem</title>
-    <!-- Font Awesome للأيقونات -->
+    <title>KOGE Network | Official Global Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --primary-gold: #f3ba2f;
-            --dark-bg: #0b0e11;
-            --card-bg: #1e2329;
-            --text-gray: #848e9c;
+            --deep-gold: #b8860b;
+            --bg-black: #0b0e11;
+            --card-bg: rgba(30, 35, 41, 0.9);
+            --glass-gold: rgba(243, 186, 47, 0.15);
+            --text-muted: #848e9c;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            margin: 0;
-            background-color: var(--dark-bg);
+            background-color: var(--bg-black);
             color: white;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated World-Class Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(243, 186, 47, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(184, 134, 11, 0.08) 0%, transparent 50%),
+                url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 5%;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            min-height: 100vh;
+            background: rgba(11, 14, 17, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .hero-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            border: 1px solid rgba(243, 186, 47, 0.1);
-        }
+        .nav-logo { font-weight: 700; font-size: 24px; color: var(--primary-gold); text-decoration: none; letter-spacing: 1px; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.3s; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--primary-gold); }
 
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(243, 186, 47, 0.3));
-        }
+        section { padding: 120px 10% 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
 
-        h1 {
-            font-size: 28px;
-            margin: 10px 0;
-            color: var(--primary-gold);
-            letter-spacing: 1px;
-        }
+        /* Hero Section */
+        .hero-logo { width: 200px; height: 200px; margin-bottom: 35px; filter: drop-shadow(0 0 20px rgba(243, 186, 47, 0.4)); animation: float 5s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        
+        h1 { font-size: clamp(45px, 8vw, 80px); text-align: center; margin-bottom: 15px; text-transform: uppercase; }
+        h1 span { color: var(--primary-gold); text-shadow: 0 0 30px rgba(243, 186, 47, 0.3); }
+        .hero-tag { font-size: 22px; color: var(--text-muted); margin-bottom: 45px; text-align: center; max-width: 700px; }
 
-        .tagline {
-            color: var(--text-gray);
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .contract-box {
-            background: #0b0e11;
-            padding: 15px;
-            border-radius: 12px;
-            border: 1px dashed var(--primary-gold);
-            margin-bottom: 25px;
+        .contract-pill {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,0.03);
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-gold);
             cursor: pointer;
             transition: 0.3s;
+            margin-bottom: 60px;
         }
+        .contract-pill:hover { background: var(--glass-gold); border-color: var(--primary-gold); transform: scale(1.02); }
+        .contract-pill code { font-family: 'Courier New', monospace; color: var(--primary-gold); margin-right: 15px; font-size: 15px; }
 
-        .contract-box:hover {
-            background: #161a1e;
+        /* Description Box */
+        .about-box {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 32px;
+            border: 1px solid rgba(243, 186, 47, 0.1);
+            text-align: center;
+            max-width: 900px;
+            margin-bottom: 80px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
+        .about-box h2 { color: var(--primary-gold); margin-bottom: 25px; font-size: 32px; }
+        .about-box p { font-size: 18px; color: #d1d4dc; margin-bottom: 20px; text-align: justify; }
 
-        .contract-label {
-            font-size: 10px;
-            color: var(--primary-gold);
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            display: block;
-        }
+        /* Bento Grid */
+        .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; max-width: 1100px; }
+        .bento-item { background: rgba(255,255,255,0.02); padding: 45px; border-radius: 28px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; }
+        .bento-item:hover { background: var(--glass-gold); border-color: var(--primary-gold); transform: translateY(-10px); }
+        .bento-item i { font-size: 40px; color: var(--primary-gold); margin-bottom: 25px; }
+        .bento-item h3 { margin-bottom: 15px; font-size: 24px; }
 
-        .contract-address {
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-            color: white;
-            word-break: break-all;
-        }
+        /* Stats */
+        .stats-wrap { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; }
+        .stat-card { background: var(--glass-gold); padding: 25px 40px; border-radius: 20px; text-align: center; border: 1px solid rgba(243, 186, 47, 0.2); }
+        .stat-val { font-size: 36px; font-weight: 700; color: var(--primary-gold); display: block; }
+        .stat-label { color: var(--text-muted); font-size: 13px; text-transform: uppercase; letter-spacing: 2px; }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
+        .btn-group { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .btn { padding: 18px 40px; border-radius: 14px; text-decoration: none; font-weight: 700; transition: 0.3s; display: flex; align-items: center; gap: 12px; }
+        .btn-gold { background: var(--primary-gold); color: black; }
+        .btn-gold:hover { background: white; box-shadow: 0 0 30px rgba(243, 186, 47, 0.5); }
 
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            background: #2b2f36;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            transition: 0.3s;
-        }
+        footer { width: 100%; padding: 60px 5%; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .socials { display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
+        .socials a { font-size: 28px; color: var(--text-muted); transition: 0.3s; }
+        .socials a:hover { color: var(--primary-gold); transform: translateY(-5px); }
 
-        .social-icon:hover {
-            background: var(--primary-gold);
-            color: black;
-            transform: translateY(-3px);
-        }
-
-        .action-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .btn {
-            padding: 14px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background: var(--primary-gold);
-            color: black;
-        }
-
-        .btn-primary:hover {
-            background: #ffcc4a;
-            transform: scale(1.02);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--text-gray);
-            color: white;
-        }
-
-        .btn-outline:hover {
-            border-color: white;
-            background: rgba(255,255,255,0.05);
-        }
-
-        footer {
-            margin-top: 25px;
-            font-size: 12px;
-            color: var(--text-gray);
-        }
+        @media (max-width: 768px) { .nav-links { display: none; } section { padding: 100px 5% 60px; } }
     </style>
 </head>
 <body>
 
-<div class="hero-card">
-    <!-- استخدام المسار النسبي للصورة لأنها في نفس المستودع -->
-    <img src="logo.png" alt="KOGE Network" class="logo">
-    
-    <h1>KOGE Network</h1>
-    <p class="tagline">The Next Generation of Governance & Utility</p>
+    <nav>
+        <a href="#" class="nav-logo">KOGE NETWORK</a>
+        <div class="nav-links">
+            <a href="#hero">Genesis</a>
+            <a href="#about">Mission</a>
+            <a href="#tokenomics">Economics</a>
+            <a href="https://t.me/koge_network_official" target="_blank">Community</a>
+        </div>
+    </nav>
 
-    <div class="contract-box" onclick="copyContract()">
-        <span class="contract-label">Official Contract Address</span>
-        <span class="contract-address" id="addr">0xe6df05CC6F17A36B247eddC22fe3b9cFCcE91714</span>
-    </div>
+    <section id="hero">
+        <!-- تم تغيير الرابط هنا إلى logo.png لضمان الظهور الفوري -->
+        <img src="logo.png" alt="KOGE Logo" class="hero-logo">
+        <h1>KOGE <span>PROTOCOL</span></h1>
+        <p class="hero-tag">Establishing the Elite Standard for Decentralized Governance on BNB Smart Chain.</p>
+        
+        <div class="contract-pill" onclick="copyAddr()">
+            <code id="c-addr">0xe6df05CC6F17A36B247eddC22fe3b9cFCcE91714</code>
+            <i class="far fa-copy"></i>
+        </div>
 
-    <div class="social-links">
-        <a href="https://t.me/koge_network_official" class="social-icon" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
-        <a href="https://x.com/KOGENetworoc" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.facebook.com/61593243962449" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    </div>
+        <div class="btn-group">
+            <a href="https://bscscan.com/token/0xe6df05CC6F17A36B247eddC22fe3b9cFCcE91714" target="_blank" class="btn btn-gold">
+                <i class="fas fa-search-dollar"></i> BSC SCAN EXPLORER
+            </a>
+            <a href="koge_whitepaper.pdf" target="_blank" class="btn" style="border: 1px solid #444; color: white;">
+                <i class="fas fa-file-pdf"></i> TECHNICAL WHITEPAPER
+            </a>
+        </div>
+    </section>
 
-    <div class="action-buttons">
-        <a href="https://bscscan.com/token/0xe6df05CC6F17A36B247eddC22fe3b9cFCcE91714" target="_blank" class="btn btn-primary">
-            <i class="fas fa-search"></i> View on BscScan
-        </a>
-        <!-- سيتم ربط هذا الزر بملف الـ PDF بعد رفعه -->
-        <a href="koge_whitepaper.pdf" class="btn btn-outline">
-            <i class="fas fa-file-pdf"></i> Read Whitepaper
-        </a>
-    </div>
+    <section id="about">
+        <div class="about-box">
+            <h2>Decentralized Evolution</h2>
+            <p>KOGE Network is a premier governance and utility protocol architected for the next generation of the BNB ecosystem. By combining high-performance smart contract logic with a community-first approach, we are building a sustainable infrastructure for decentralized collaboration.</p>
+            <p>Our core mission is to provide holders with direct influence over the protocol's evolution while ensuring maximum security through capped supply and transparent issuance rules.</p>
+        </div>
+
+        <div class="bento-grid">
+            <div class="bento-item">
+                <i class="fas fa-crown"></i>
+                <h3>Governance</h3>
+                <p>Strategic decision-making powered by community consensus. Every holder is a stakeholder in the KOGE future.</p>
+            </div>
+            <div class="bento-item">
+                <i class="fas fa-shield-virus"></i>
+                <h3>Security</h3>
+                <p>Hard-capped supply of 500M with automated reentrancy protection and verified open-source architecture.</p>
+            </div>
+            <div class="bento-item">
+                <i class="fas fa-gem"></i>
+                <h3>Utility</h3>
+                <p>Integrated rewards and governance utility designed to drive long-term value for the entire ecosystem.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics">
+        <h2 style="font-size: 40px; margin-bottom: 50px;">PROTOCOL <span>ECONOMICS</span></h2>
+        <div class="stats-wrap">
+            <div class="stat-card">
+                <span class="stat-val">500,000,000</span>
+                <span class="stat-label">Hard Cap Supply</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val">18</span>
+                <span class="stat-label">Decimals</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-val">BEP20</span>
+                <span class="stat-label">Network Type</span>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        &copy; 2026 KOGE Network. All rights reserved.
+        <div class="socials">
+            <a href="https://t.me/koge_network_official" target="_blank"><i class="fab fa-telegram"></i></a>
+            <a href="https://x.com/KOGENetworoc" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/61593243962449" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p style="color: var(--text-muted); font-size: 14px; letter-spacing: 1px;">
+            &copy; 2026 KOGE NETWORK | ALL RIGHTS RESERVED
+        </p>
     </footer>
-</div>
 
-<script>
-    function copyContract() {
-        const addr = document.getElementById('addr').innerText;
-        navigator.clipboard.writeText(addr);
-        alert('Contract Address Copied!');
-    }
-</script>
-
+    <script>
+        function copyAddr() {
+            const el = document.getElementById('c-addr');
+            navigator.clipboard.writeText(el.innerText);
+            alert('Contract Address Copied!');
+        }
+    </script>
 </body>
 </html>
