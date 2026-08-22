@@ -1,13 +1,13 @@
-# KOGE Network - bnb48 club mirror
+# KOGE Network - BNB48 Club Mirror
 
 
 Official smart contract and assets for the KOGE Network ecosystem.
 
 ## Project Overview
-bnb48 club mirror (KOGE) is a governance and utility token designed for the BNB48 community.
+BNB48 Club Mirror (KOGE) is a governance and utility token designed for the BNB48 community.
 
 ## Token Details
-- **Name:** bnb48 club mirror
+- **Name:** BNB48 Club Mirror
 - **Symbol:** KOGE
 - **Network:** BNB Smart Chain (BSC)
 - **Contract Address:** `0xe6df05CC6F17A36B247eddC22fe3b9cFCcE91714`
